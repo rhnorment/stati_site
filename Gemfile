@@ -12,7 +12,7 @@ gem 'puma'
 gem 'rack-contrib'
 
 gem :development do
-  em 'middleman-livereload', '~> 3.1.0'
+  gem 'middleman-livereload', '~> 3.1.0'
 end
 
 
