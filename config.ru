@@ -8,7 +8,7 @@ use Rack::TryStatic,
     urls: %w[/],
     try: ['.html', 'index.html', '/index.html']
 
-run ->{ |env|
+run lambda { |env|
   four_oh_four_page = File.expand_path('../build/404/index.html', __FILE__)
   [ 404, { 'Content-Type' => 'text/html' }, [ File.read(four_oh_four_page) ]]
 }
