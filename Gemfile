@@ -11,7 +11,7 @@ gem 'neat'
 gem 'puma'
 gem 'rack-contrib'
 
-gem :development do
+group :development do
   gem 'middleman-livereload', '~> 3.1.0'
 end
 
