@@ -6,6 +6,7 @@ ruby '2.2.1'
 
 gem 'bitters'
 gem 'bourbon'
+gem 'jquery-middleman'
 gem 'middleman', '~>3.4.0'
 gem 'neat'
 gem 'puma'
