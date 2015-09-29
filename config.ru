@@ -2,14 +2,22 @@ require 'rubygems'
 require 'middleman/rack'
 require 'rack/contrib/try_static'
 
-# serve static files from the build directory:
+
+use Rack::Deflater
 use Rack::TryStatic,
     root: 'build',
     urls: %w[/],
-    try: ['.html', 'index.html', '/index.html']
+    try:  %w[.html index.html /index.html]
 
-run lambda{ |env|
-      four_oh_four_page = File.expand_path('../build/404/index.html', __FILE__)
-      [ 404, { 'Content-Type'  => 'text/html'}, [ File.read(four_oh_four_page) ]]
-    }
+FIVE_MINUTES = 300
 
+run lambda { |env|
+  [
+    404,
+    {
+        'Content-Type'  => 'text/html',
+        'Cache-Control' => "public, max-age=#{FIVE_MINUTES}"
+    },
+    ['File not found']
+  ]
+}
