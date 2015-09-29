@@ -2,7 +2,6 @@ require 'rubygems'
 require 'middleman/rack'
 require 'rack/contrib/try_static'
 
-
 use Rack::Deflater
 use Rack::TryStatic,
     root: 'build',
