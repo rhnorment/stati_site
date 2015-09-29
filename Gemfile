@@ -4,11 +4,16 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
+gem 'bitters'
+gem 'bourbon'
 gem 'middleman', '~>3.4.0'
-
-# Live-reloading plugin
-gem 'middleman-livereload', '~> 3.1.0'
-
+gem 'neat'
+gem 'puma'
 gem 'rack-contrib'
 
-gem 'puma'
+gem :development do
+  em 'middleman-livereload', '~> 3.1.0'
+end
+
+
+
